@@ -7,11 +7,25 @@ import '../blocs/bloc_exports.dart';
 class TasksScreen extends StatelessWidget {
   TasksScreen({Key? key}) : super(key: key);
 
-  // List<Task> tasksList = [
-  //   Task(title: 'Task1'),
-  //   Task(title: 'Task2'),
-  //   Task(title: 'Task3'),
-  // ];
+  TextEditingController titleController = TextEditingController();
+  
+  void _addTask(BuildContext context){
+    showModalBottomSheet(
+      context: context, 
+      builder: (context) => SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom
+          ),
+          child: Column(children: [
+            TextField(
+              controller: titleController,
+            )
+          ],),
+          ),
+      )
+      );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +56,7 @@ class TasksScreen extends StatelessWidget {
             ],
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () => _addTask(context),
             tooltip: 'Add Task',
             child: const Icon(Icons.add),
           ),
