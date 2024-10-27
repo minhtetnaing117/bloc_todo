@@ -35,7 +35,7 @@ class _TasksScreenState extends State<TasksScreen> {
             title: const Text('Tasks App'),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () => _addTask(context),
                 icon: const Icon(Icons.add),
               )
             ],
