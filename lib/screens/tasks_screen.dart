@@ -8,23 +8,17 @@ class TasksScreen extends StatelessWidget {
   TasksScreen({Key? key}) : super(key: key);
 
   TextEditingController titleController = TextEditingController();
-  
-  void _addTask(BuildContext context){
+
+  void _addTask(BuildContext context) {
     showModalBottomSheet(
-      context: context, 
-      builder: (context) => SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom
-          ),
-          child: Column(children: [
-            TextField(
-              controller: titleController,
-            )
-          ],),
-          ),
-      )
-      );
+        context: context,
+        builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: AddTaskScreen(titleController: titleController),
+              ),
+            ));
   }
 
   @override
@@ -62,6 +56,45 @@ class TasksScreen extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class AddTaskScreen extends StatelessWidget {
+  const AddTaskScreen({
+    super.key,
+    required this.titleController,
+  });
+
+  final TextEditingController titleController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          const Text(
+            'Add Task',
+            style: TextStyle(fontSize: 24),
+          ),
+          TextField(
+            autofocus: true,
+            controller: titleController,
+            decoration: const InputDecoration(
+              label: Text('Title'),
+              ),
+          ),
+          TextButton(
+            onPressed: () {}, 
+          child: const Text('cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {}, 
+            child: const Text('Add'),
+          ),
+        ],
+      ),
     );
   }
 }
