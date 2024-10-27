@@ -5,10 +5,14 @@ import 'package:flutter/material.dart';
 
 import '../blocs/bloc_exports.dart';
 
-class TasksScreen extends StatelessWidget {
-  TasksScreen({Key? key}) : super(key: key);
+class TasksScreen extends StatefulWidget {
+  const TasksScreen({Key? key}) : super(key: key);
 
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
 
+class _TasksScreenState extends State<TasksScreen> {
   void _addTask(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -16,7 +20,7 @@ class TasksScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTaskScreen(),
+                child: const AddTaskScreen(),
               ),
             ));
   }
