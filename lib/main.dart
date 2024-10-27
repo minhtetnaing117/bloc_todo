@@ -6,9 +6,8 @@ import 'screens/tasks_screen.dart';
 
 void main() {
   BlocOverrides.runZoned(
-    ()=> runApp(const MyApp()),
+    () => runApp(const MyApp()),
   );
- 
 }
 
 class MyApp extends StatelessWidget {
@@ -18,9 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TasksBloc()
-      ..add(AddTask(task: Task(title: "Task1"),
-      )),
+      create: (context) => TasksBloc(),
       child: MaterialApp(
         title: 'Flutter Tasks App',
         theme: ThemeData(
