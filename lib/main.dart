@@ -1,5 +1,4 @@
 import 'package:bloc_todo/blocs/bloc_exports.dart';
-import 'package:bloc_todo/models/task.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'screens/tasks_screen.dart';
